@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  lastData: LastData
+  lastData: DataItem
   isSimple: boolean
 }>()
 </script>
