@@ -18,10 +18,14 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss',
   ],
+  // debug: process.env.NODE_ENV === 'development',
+  devServer: {
+    host: ['localhost', '192.168.1.57'],
+  },
   devtools: { enabled: false },
   runtimeConfig: {
     app: {
-      baseUrl: process.env.BASE_URL || 'http://192.168.1.122',
+      baseUrl: process.env.NUXT_BASE_URL || 'http://192.168.1.122',
     },
   },
   ssr: false,
