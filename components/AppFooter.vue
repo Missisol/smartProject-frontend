@@ -1,14 +1,18 @@
 <script setup>
+const currentYear = ref(new Date().getFullYear())
+
 </script>
 
 <template>
   <footer class="footer">
-    <h2>This is Footer</h2>
+    <span>&copy; {{ currentYear }}</span>
   </footer>
 </template>
 
 <style lang='scss' scoped>
 .footer {
-  min-height: 100px;
+  display: flex;
+  align-items: center;
+  padding: var(--gap) 0;
 }
 </style>

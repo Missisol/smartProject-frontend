@@ -2,15 +2,24 @@
 </script>
 
 <template>
-  <div>
-    <h2>This is Header</h2>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Posts</a>
-      <a href="#">Contact</a>
+  <header class="header">
+    <nav class="header__nav">
+      <NuxtLink to="/">BME data</NuxtLink>
+      <NuxtLink to="/dht22">DHT22 data</NuxtLink>
     </nav>
-  </div>
+  </header>
 </template>
 
 
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.header {
+  display: flex;
+
+  &__nav {
+    display: flex;
+    gap: var(--gap);
+    margin-left: auto;
+    padding: var(--gap) 0;
+  }
+}
+</style>
