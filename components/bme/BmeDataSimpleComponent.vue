@@ -11,21 +11,21 @@ const props = defineProps<{
       <i class="bx bxs-thermometer readings"></i>
       <div class="box__content">
         <div class="box__title">Температура, &deg;C</div>
-        <div class="box__data" id="temperature">{{ lastData?.bme_temperature }}</div>
+        <div class="box__data" id="temperature">{{ lastData?.temperature }}</div>
       </div>
     </div>
     <div class="box">
       <i class="bx bxs-droplet-half readings readings--two"></i>
       <div class="box__content">
         <div class="box__title">Влажность, %</div>
-        <div class="box__data" id="humidity">{{ lastData?.bme_humidity }}</div>
+        <div class="box__data" id="humidity">{{ lastData?.humidity }}</div>
       </div>
     </div>
     <div class="box">
       <i class="bx bxs-tachometer readings readings--three"></i>
       <div class="box__content">
         <div class="box__title">Давление, мм.рт.ст.</div>
-        <div class="box__data" id="pressure">{{ lastData?.bme_pressure }}</div>
+        <div class="box__data" id="pressure">{{ lastData?.pressure }}</div>
       </div>
     </div>
   </div>

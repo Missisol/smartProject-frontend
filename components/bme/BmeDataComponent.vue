@@ -11,6 +11,7 @@ const props = defineProps({
 })
 
 const isSimple = ref(true)
+const date = ref(new Date(props.lastData.full_date))
 
 function togglePanel() {
   isSimple.value = !isSimple.value
@@ -22,7 +23,7 @@ function togglePanel() {
     <div class="gauge__header">
       <div class="gauge__title-wrapper">
         <h2 class="title">Данные на&nbsp;
-            {{ props.lastData.bme_date }}
+            {{ date.toLocaleString() }}
         </h2>
         <span id="local-date" class="title title--date"></span>
       </div>
