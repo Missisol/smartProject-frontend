@@ -19,6 +19,6 @@ export function useGetGauge(gaugeEls) {
         },
       },
     ]
-    Plotly.newPlot(gaugeEls.value[idx], trace, plotlyLayout, {displayModeBar: false})
+    Plotly.newPlot(gaugeEls.value[idx], trace, gaugeLayout, {displayModeBar: false})
   })
 }

@@ -1,36 +1,33 @@
 <script setup>
-const url = bmeData
-const timer = 60 * 1000
-// const timer = 60 * 1000 * 15
-const isSimple = ref(true)
-const results = ref(null)
+const props = defineProps({
+  results: {
+    type: Array,
+    default: () => []},
+})
 
-const { data, error } = await useCustomFetch(url)
-results.value = data.value.results
+watch(() => props.results, (n, o) => {
+    if (n[0].id !== o[0].id) {
+      const { lineChartArr } = useGetLineChart(props.results)
+    }
+  })
 
-function getPeriodicData() {
-  setTimeout(async () => {
-    const { data, error } = await useCustomFetch(url)
-    results.value = data.value.results
-
-    getPeriodicData()
-  }, timer)
-}
-
-getPeriodicData()
+const { lineChartArr } = useGetLineChart(props.results)
 </script>
 
 <template>
   <section class="section">
-    <ul>
-      <li v-for="item in results"> 
-        <span>{{ item.id }}</span>&nbsp;&nbsp;:
-        <span>{{ item.bme_date }}</span>&nbsp;:
-        <span>temperature: {{ item.bme_temperature }}</span>&nbsp;
-        <span>humidity: {{ item.bme_humidity }}</span>&nbsp;
-        <span>pressure: {{ item.bme_pressure }}</span> 
-      </li>
-    </ul>
+    <!-- <pre>lineChartArr {{ lineChartArr }}</pre> -->
+    <client-only>
+      <nuxt-plotly
+        v-for="plotlyData in lineChartArr"
+        :key="plotlyData.layout.title"
+        :data="plotlyData.trace"
+        :layout="plotlyData.layout"
+        :config="plotlyConfig"
+        style="width: 100%"
+      ></nuxt-plotly>
+    </client-only>
+
   </section>
 </template>
 
