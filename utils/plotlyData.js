@@ -65,5 +65,6 @@ export const plotlyConfig = {
 export const bmeDataArr = [
   { name: 'temperature', text: 'Температура', colorway: '3ba639' },
   { name: 'humidity', text: 'Влажность', colorway: '047df3' },
-  { name: 'pressure', text: 'Давление', colorway: '808080' },
+  { name: 'pressure', text: 'Давление', colorway: '595959' },
+  // { name: 'pressure', text: 'Давление', colorway: '808080' },
 ]
