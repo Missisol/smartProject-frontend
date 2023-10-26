@@ -28,7 +28,9 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     app: {
-      baseUrl: process.env.NUXT_BASE_URL || 'http://192.168.1.122',
+      baseUrl: process.env.NODE_ENV === 'production' 
+        ? process.env.NUXT_BASE_URL 
+        : process.env.NUXT_BASE_URL_LOCAL
     },
   },
   ssr: false,
