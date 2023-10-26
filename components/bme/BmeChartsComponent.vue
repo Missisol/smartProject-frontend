@@ -5,21 +5,25 @@ const props = defineProps({
     default: () => []},
 })
 
-watch(() => props.results, (n, o) => {
-    if (n[0].id !== o[0].id) {
-      const { lineChartArr } = useGetLineChart(props.results)
-    }
-  })
+const plotlyArr = ref(null)
 
-const { lineChartArr } = useGetLineChart(props.results)
+plotlyArr.value = useGetLineChart(props.results)
+
+watchEffect(() => {
+  plotlyArr.value = useGetLineChart(props.results)
+})
+// watch(
+//   () => props.results, 
+//   () => {
+//        plotlyArr.value = useGetLineChart(props.results)
+//   })
 </script>
 
 <template>
   <section class="section">
-    <!-- <pre>lineChartArr {{ lineChartArr }}</pre> -->
     <client-only>
       <nuxt-plotly
-        v-for="plotlyData in lineChartArr"
+        v-for="plotlyData in toValue(plotlyArr)"
         :key="plotlyData.layout.title"
         :data="plotlyData.trace"
         :layout="plotlyData.layout"

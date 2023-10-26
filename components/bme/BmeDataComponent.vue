@@ -1,14 +1,8 @@
-<script setup>
-const props = defineProps({
-  lastData: {
-    type: Object,
-    default: () => {},
-  },
-  timer: {
-    type: Number,
-    default: 1000,
-  }
-})
+<script setup lang="ts">
+const props = defineProps<{
+  lastData: DataItem
+  timer: number
+}>()
 
 const isSimple = ref(true)
 const date = ref(new Date(props.lastData.full_date))
@@ -34,13 +28,13 @@ function togglePanel() {
     </div>
     <BmeDataSimpleComponent 
       v-if="isSimple"
-      :lastData="props.lastData"
+      :lastData="lastData"
       :isSimple="isSimple"
     />
     <BmeDataGaugeComponent 
       v-else
-      :lastData="props.lastData"
-      :timer="props.timer"
+      :lastData="lastData"
+      :timer="timer"
     />
   </section>
 </template>

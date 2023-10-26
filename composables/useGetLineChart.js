@@ -24,5 +24,5 @@ export function useGetLineChart(dataArr) {
     return { trace, layout }
   })
 
-  return { lineChartArr }
+  return lineChartArr
 }
