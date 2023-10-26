@@ -4,9 +4,10 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <NuxtLink class="header__link" to="/">BME data</NuxtLink>
-      <NuxtLink class="header__link" to="/bmeHistory">BME history</NuxtLink>
-      <NuxtLink class="header__link" to="/dhtData">DHT22 data</NuxtLink>
+      <NuxtLink class="header__link" to="/">Данные BME280</NuxtLink>
+      <NuxtLink class="header__link" to="/bmeHistory">История BME280</NuxtLink>
+      <NuxtLink class="header__link" to="/dhtData">Данные DHT22</NuxtLink>
+      <NuxtLink class="header__link" to="/dhtHistory">История DHT22</NuxtLink>
     </nav>
   </header>
 </template>
