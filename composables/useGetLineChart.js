@@ -2,7 +2,7 @@ export function useGetLineChart(dataArr) {
   const lineChartArr = ref(null)
 
   lineChartArr.value = bmeDataArr.map((field, idx) => {
-    const { x, y } = useMakeDataForLineChart(dataArr, field.name)
+    const { x, y } = useMakeDataForLineChart(dataArr, 'full_date', field.name)
     const trace = [{
       x: x,
       y: y,

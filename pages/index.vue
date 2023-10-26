@@ -8,7 +8,7 @@ const { res, err } = await useGetPeriodicData(bmeDataUrl, timer)
   <div>
     <CommonPageTitle>Данные BME280</CommonPageTitle>
     <BmeDataComponent :lastData="res[0]" />
-    <BmeChartsComponent :results="res" />
+    <BmeChartsComponent :results="res" :func="useGetLineChart"/>
   </div>
 </template>
 

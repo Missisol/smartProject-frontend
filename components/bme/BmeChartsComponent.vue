@@ -1,22 +1,16 @@
 <script setup>
 const props = defineProps({
-  results: {
-    type: Array,
-    default: () => []},
+  results:  Array,
+  func: Function,
 })
 
 const plotlyArr = ref(null)
 
-plotlyArr.value = useGetLineChart(props.results)
+plotlyArr.value = props.func(props.results)
 
 watchEffect(() => {
-  plotlyArr.value = useGetLineChart(props.results)
+  plotlyArr.value = props.func(props.results)
 })
-// watch(
-//   () => props.results, 
-//   () => {
-//        plotlyArr.value = useGetLineChart(props.results)
-//   })
 </script>
 
 <template>
