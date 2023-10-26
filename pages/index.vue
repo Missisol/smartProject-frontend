@@ -23,7 +23,7 @@ getPeriodicData()
 
 <template>
   <div>
-    <div>BME Data</div>
+    <CommonPageTitle>Данные BME280</CommonPageTitle>
     <BmeDataComponent :lastData="lastData" :timer="timer" />
     <BmeChartsComponent :results="results" />
   </div>

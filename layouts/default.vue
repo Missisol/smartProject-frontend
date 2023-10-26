@@ -23,9 +23,4 @@
 .container > * {
   grid-column: container;
 }
-
-.title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
-}
 </style>
