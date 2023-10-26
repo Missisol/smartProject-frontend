@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>DHT 22</div>
+    <CommonPageTitle>Данные DHT22</CommonPageTitle>
 </template>
 
 <style lang='scss' scoped></style>
