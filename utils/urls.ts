@@ -1,4 +1,4 @@
-export const bmeData = '/meteo/bme/'
-export const bmeHistory = '/meteo/bme-history/'
-export const dhtData = '/meteo/dht/'
-export const dhtHistory = '/meteo/dht-history/'
+export const bmeDataUrl = '/meteo/bme/'
+export const bmeHistoryUrl = '/meteo/bme-history/'
+export const dhtDataUrl = '/meteo/dht/'
+export const dhtHistoryUrl= '/meteo/dht-history/'

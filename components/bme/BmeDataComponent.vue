@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
   lastData: DataItem
-  timer: number
 }>()
 
 const isSimple = ref(true)
@@ -35,7 +34,6 @@ watchEffect(() => {
     <BmeDataGaugeComponent 
       v-else
       :lastData="lastData"
-      :timer="timer"
     />
   </section>
 </template>
