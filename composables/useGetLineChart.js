@@ -20,7 +20,7 @@ export function useGetLineChart(dataArr) {
         color: "#808080",
       },
       colorway: [field.colorway],
-    };
+    }
     return { trace, layout }
   })
 

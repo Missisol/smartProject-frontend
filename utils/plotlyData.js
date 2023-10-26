@@ -45,18 +45,6 @@ export const gaugeLayout = {
   margin: { t: 30, b: 30, l: 30, r: 30 },
 }
 
-/*   */
-
-export const plotlyLayout = {
-  margin: { t: 30, b: 30, l: 30, r: 30 },
-}
-
-export const bmeDataNames = [
-  'temperature',
-  'humidity',
-  'pressure',
-]
-
 export const plotlyConfig = {
   responsive: true,
   displayModeBar: false,
@@ -66,5 +54,4 @@ export const bmeDataArr = [
   { name: 'temperature', text: 'Температура', colorway: '3ba639' },
   { name: 'humidity', text: 'Влажность', colorway: '047df3' },
   { name: 'pressure', text: 'Давление', colorway: '595959' },
-  // { name: 'pressure', text: 'Давление', colorway: '808080' },
 ]

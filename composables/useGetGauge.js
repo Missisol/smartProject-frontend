@@ -1,7 +1,10 @@
-export function useGetGauge(gaugeEls) {
-  gaugeDataArr.forEach((item, idx) => {
+export function useGetGauge(dataArr) {
+  const gaugeChartArr = ref(null)
+
+  gaugeChartArr.value =  gaugeDataArr.map((item) => {
     const trace = [
       {
+        value: dataArr[item.name],
         type: "indicator",
         mode: "gauge+number",
         // mode: "gauge+number+delta",
@@ -19,6 +22,8 @@ export function useGetGauge(gaugeEls) {
         },
       },
     ]
-    Plotly.newPlot(gaugeEls.value[idx], trace, gaugeLayout, {displayModeBar: false})
+    return { trace }
   })
+
+  return gaugeChartArr
 }

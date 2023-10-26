@@ -9,9 +9,7 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' }
       ],
       "style": [],
-      "script": [
-        { src: 'https://cdn.plot.ly/plotly-2.26.2.js' }
-      ],
+      "script": [],
       "noscript": []
     },
   },

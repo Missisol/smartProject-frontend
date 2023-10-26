@@ -1,50 +1,28 @@
 <script setup>
 const props = defineProps({
-  lastData: {
-    type: Object,
-    default: () => {},
-  },
-  timer: {
-    type: Number,
-    default: 1000,
-  }
+  lastData: Object
 })
 
-const temperatureGaugeEl = ref(null)
-const humidityGaugeEl = ref(null)
-const pressureGaugeEl = ref(null)
-const gaugeEls = ref(null)
+const plotlyArr = ref(null)
 
-function getUpdatedGaugePlotly() {
-  useUpdateGauge(props.lastData, gaugeEls)
+plotlyArr.value = useGetGauge(props.lastData)
 
-  setTimeout(() => {
-    useUpdateGauge(props.lastData, gaugeEls)
-
-    getUpdatedGaugePlotly()
-  }, props.timer)
-}
-
-onMounted(() => {
-  gaugeEls.value = [temperatureGaugeEl.value, humidityGaugeEl.value, pressureGaugeEl.value] 
-  useGetGauge(gaugeEls)
-  setTimeout(() => {
-    getUpdatedGaugePlotly()
-  }, 500)
+watchEffect(() => {
+  plotlyArr.value = useGetGauge(props.lastData)
 })
 </script>
 
 <template>
   <div class="wrapper gauge-wrapper">
-    <div class="gauge__box">
-      <div id="temperature-gauge" ref="temperatureGaugeEl"></div>
-    </div>
-    <div class="gauge__box">
-      <div id="humidity-gauge" ref="humidityGaugeEl"></div>
-    </div>
-    <div class="gauge__box">
-      <div id="pressure-gauge" ref="pressureGaugeEl"></div>
-    </div>
+    <ClientOnly>
+      <nuxt-plotly
+      v-for="plotlyData in toValue(plotlyArr)"
+        :key="plotlyData.trace.title"
+        :data="plotlyData.trace"
+        :layout="gaugeLayout"
+        :config="plotlyConfig"
+      ></nuxt-plotly>
+    </ClientOnly>
   </div>
 </template>
 
