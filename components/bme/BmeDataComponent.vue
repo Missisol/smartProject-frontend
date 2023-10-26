@@ -5,11 +5,15 @@ const props = defineProps<{
 }>()
 
 const isSimple = ref(true)
-const date = ref(new Date(props.lastData.full_date))
+const date = ref<string|null>(null)
 
 function togglePanel() {
   isSimple.value = !isSimple.value
 }
+
+watchEffect(() => {
+  date.value = new Date(props.lastData.full_date).toLocaleString()
+})
 </script>
 
 <template>
@@ -17,7 +21,7 @@ function togglePanel() {
     <div class="gauge__header">
       <div class="gauge__title-wrapper">
         <h2 class="title">Данные на&nbsp;
-            {{ date.toLocaleString() }}
+            {{ date }}
         </h2>
         <span id="local-date" class="title title--date"></span>
       </div>
