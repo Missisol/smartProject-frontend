@@ -1,9 +1,9 @@
 interface DataItem {
   id: number
-  bme_date: string
-  bme_humidity: number
-  bme_pressure: number
-  bme_temperature: number
+  full_date: string
+  humidity: number
+  pressure: number
+  temperature: number
 }
 
 interface Results {

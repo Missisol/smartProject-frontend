@@ -1,6 +1,6 @@
 export const gaugeDataArr = [
-  { 
-    name: 'temperature', 
+  {
+    name: 'temperature',
     text: 'Температура, &deg;C',
     reference: 30,
     range: [null, 50],
@@ -12,9 +12,9 @@ export const gaugeDataArr = [
     ],
     value: 40,
   },
-  { 
-    name: 'humidity', 
-    text: 'Влажность, %', 
+  {
+    name: 'humidity',
+    text: 'Влажность, %',
     reference: 40,
     range: [null, 100],
     color: "#047df3",
@@ -25,9 +25,9 @@ export const gaugeDataArr = [
     ],
     value: 70,
   },
-  { 
-    name: 'pressure', 
-    text: 'Давление, мм.рт.ст.', 
+  {
+    name: 'pressure',
+    text: 'Давление, мм.рт.ст.',
     reference: 748,
     range: [700, 800],
     color: "#808080",
@@ -39,15 +39,19 @@ export const gaugeDataArr = [
   },
 ]
 
-
-export const plotlyLayout = { 
+export const gaugeLayout = {
   width: 300,
-  height: 250, 
+  height: 250,
   margin: { t: 30, b: 30, l: 30, r: 30 },
 }
 
-export const bmeDataNames = [
-  'temperature',
-  'humidity',
-  'pressure',
+export const plotlyConfig = {
+  responsive: true,
+  displayModeBar: false,
+}
+
+export const bmeDataArr = [
+  { name: 'temperature', text: 'Температура', colorway: '3ba639' },
+  { name: 'humidity', text: 'Влажность', colorway: '047df3' },
+  { name: 'pressure', text: 'Давление', colorway: '595959' },
 ]
