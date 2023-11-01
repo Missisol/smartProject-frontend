@@ -1,19 +1,16 @@
 # syntax=docker/dockerfile:1
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/engine/reference/builder/
-
 ARG NODE_VERSION=20
-
-FROM node:${NODE_VERSION}-alpine as base
-
-WORKDIR /usr/src/app
-
+FROM node:${NODE_VERSION}-alpine as build
+WORKDIR /app
 COPY . .
-
 RUN npm ci && npm run build
-
-EXPOSE 3000
-
 CMD npm start
+# EXPOSE 3000
+
+
+
+# FROM nginx:alpine AS runtime
+# COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+# COPY --from=build /app/.output /usr/share/nginx/html
+# EXPOSE 8080
